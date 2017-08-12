@@ -1,9 +1,8 @@
-
 var AsteroidHit = require('./asteroidHit');
+
 var AsteroidHits = function() {
 
 }
-
 
 AsteroidHits.prototype = {
 
@@ -15,7 +14,7 @@ AsteroidHits.prototype = {
     },
 
     all: function(callback){
-      this.makeRequest("http://localhost:3000/api/facts", function(){
+      this.makeRequest("http://localhost:3000/api/hits", function(){
         if(this.status !==200) return;
         var jsonString = this.responseText; 
         var results = JSON.parse(jsonString);
@@ -27,7 +26,7 @@ AsteroidHits.prototype = {
     populateHits: function(results){
       var hits = [];
       for(var result of results){
-        var hits = new AsteroidHit(result);
+        var hit = new AsteroidHit(result);
         hits.push(hit)
       }
       return hits;

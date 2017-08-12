@@ -8,9 +8,15 @@ router.get('/', function(req, res){
   res.sendFile(path.join(__dirname + '/../client/build/index.html'));
 })
 
-
 router.get('/api/facts', function(req, res) {
-  query.all(function(results){
+  query.allFacts(function(results){
+    res.json(results);
+  })
+});
+
+// Chris amended
+router.get('/api/hits', function(req, res) {
+  query.allHits(function(results){
     res.json(results);
   })
 });

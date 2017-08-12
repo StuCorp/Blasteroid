@@ -5,10 +5,19 @@ var AsteroidQuery = function(){
 };
 
 AsteroidQuery.prototype = {
-  all: function(callback){
+  allFacts: function(callback){
     MongoClient.connect(this.url, function(err, db){
-      var collection = db.collection('asteroid_facts');
-      collection.find().toArray(function(err, result){
+      var collectionFacts = db.collection('asteroid_facts');
+      collectionFacts.find().toArray(function(err, result){
+        callback(result);
+      });
+    });
+  },
+
+  allHits: function(callback){
+    MongoClient.connect(this.url, function(err, db){
+      var collectionHits = db.collection('asteroid_hits');
+      collectionHits.find().toArray(function(err, result){
         callback(result);
       });
     });
