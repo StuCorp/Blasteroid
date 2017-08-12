@@ -7,7 +7,7 @@ var AsteroidQuery = function(){
 AsteroidQuery.prototype = {
   all: function(callback){
     MongoClient.connect(this.url, function(err, db){
-      var collection = db.collection('asteroid_facts');
+      var collection = db.collection('asteroid_hits');
       collection.find().toArray(function(err, result){
         callback(result);
       });
