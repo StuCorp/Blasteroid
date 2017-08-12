@@ -1,3 +1,5 @@
+
+var AsteroidHit = require('./asteroidHit');
 var AsteroidHits = function() {
 
 }
@@ -33,3 +35,6 @@ AsteroidHits.prototype = {
 
 
 };
+
+module.exports = AsteroidHits;
+

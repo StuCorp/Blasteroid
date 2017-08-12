@@ -1,3 +1,4 @@
+
 var AsteroidHit = function(options){
   this.headline = options.headline;
   this.date = options.date;
