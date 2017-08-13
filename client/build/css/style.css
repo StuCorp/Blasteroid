@@ -1,0 +1,347 @@
+/*Hex codes
+darkest blue bg #002144
+dark blue bg #013064
+mid blue bg #015198
+accen blue bg #0483F3
+bright accent blue bg #0483F3
+brightes blue #01FFFF
+
+orange #FD7B33
+yellow #FFFF01
+red #FE3801
+
+blue graph bg #FE3801
+blue graph line #0173C3
+
+
+dark blue #023375
+mid blue #0182F1
+brightest blue #00FEFB
+
+*/
+body {
+  background-color: #000000;
+  font-family: futura, helvetica, verdana, sans-serif;
+  color: #ffffff;
+
+}
+
+h1 {
+  color: #8dd9f1;
+  font-family: futura, helvetica, verdana, sans-serif;
+  font-weight: bolder;
+  margin-bottom: 50px;
+  font-size: 40px;
+}
+
+h2 {
+  color: #ffffff;
+  font-family: futura, helvetica, verdana, sans-serif;
+  font-variant: small-caps;
+}
+
+h3 {
+  color: #8dd9f1;
+  font-family: futura, helvetica, verdana, sans-serif;
+
+}
+
+p {
+  color: #bdf9ff;
+  font-family: tahoma, futura, helvetica, verdana, sans-serif;
+  font-weight: lighter;
+}
+
+a {
+  color: #7dc9e1;
+  font-family: futura, helvetica, verdana, sans-serif;
+}
+
+a:hover {
+  color: #4d99bf;
+}
+
+a:visited {
+  color: #7dc9e1;
+}
+
+hr {
+  color: #6db9d1;
+  background-color: #6db9d1;     
+  height: 0px;
+  border: 0;
+  border-top: 1px dotted #6db9d1;
+  margin: 1em 0;
+  padding: 0; 
+}
+
+.red {
+  color: #bb0000;
+}
+
+.lightestred {
+  color: #ff7777;
+}
+
+.lightred {
+  color: #ffaaaa;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.lightblue {
+  color: #8dd9f1;
+}
+
+.image {
+  width: 240px;
+  height: 180px;
+  float: right;
+  padding: 20px 20px 20px 20px;
+  border-radius: 35px;
+
+}
+
+#container {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  background: black;
+padding: 0px;
+}
+
+#canvas {
+  z-index: 1; 
+  position: absolute;
+  padding: 0px;
+  width: 100%;
+  height: 350px;
+  cursor: crosshair;
+  background-image: url(https://www.nasa.gov/sites/default/files/thumbnails/image/asteroids_passing_earth.jpg);
+}
+
+#logo_position {
+  z-index: 2; 
+  position: relative;
+  width: 350px;
+  height: 100px;
+  cursor: crosshair;
+}
+
+#close_approach_container {
+  z-index: 3;
+  position: relative;
+  margin-top: 30px;
+  width: 350px;
+  height: 100px;
+  cursor: crosshair;
+}
+
+#close_approach_date {
+  z-index: 4;
+  display: inline;
+  color: #8dd9f1;
+  background-color: #8dd9f1 transparent;
+  padding: 10px;
+  margin-left: 50px;
+  border-radius: 35px;
+  border: solid #8dd9f1;
+  border-left: 1px;
+  border-right: 1px;
+}
+
+#details-container {
+  padding: 0px;
+  margin: 0px;
+  padding-right: 25px;
+  text-align: right;
+  cursor: crosshair;
+}
+
+#details {
+  color: #bdf9ff;
+  margin-top: 15px;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 10px 14px;
+  border-radius: 15px;
+  -webkit-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: none;
+  background-color: #bdf9ff transparent;
+  z-index: 3; 
+  position: relative; 
+  width: 250px;
+  left:10px;
+  top:10px;
+  border: 1px solid #8dd9f1;
+  cursor: crosshair;
+}
+/*#details:hover {
+  background-color: #bdf9ff;
+  -webkit-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}*/
+
+.hero-bg {
+  width: auto;
+  min-height: 140px;
+  margin: 0px 10px;
+  padding-top: 50px;
+  background-image: url(https://www.nasa.gov/sites/default/files/thumbnails/image/asteroids_passing_earth.jpg);
+}
+
+#timeline-box {
+  z-index: 4;
+  display: inline;
+  min-height: 150px;
+  color: #8dd9f1;
+  background-color: #222222;
+  padding: 10px;
+  padding-left: 30px;
+  margin: 10px;
+  border-radius: 75px;
+  border: solid #aa0000;
+  border-left: 1px;
+  border-right: 1px;
+/*  background: linear-gradient(0deg, #222222, #333333 40%, #111111);*/
+background: linear-gradient(0deg, #662222, #aa3333 40%, #551111);
+/*  background-image: repeating-linear-gradient(0deg,transparent,transparent 10px,#444444 10px,#444444 11px),repeating-linear-gradient(-90deg,transparent,transparent 10px,#444444 10px,#444444 11px);
+  background-size: 71px 71px;*/
+}
+
+#fact-box {
+  z-index: 4;
+  display: inline;
+  min-height: 150px;
+  color: #8dd9f1;
+  background-color: #013064;
+  padding: 10px;
+  padding-left: 30px;
+  margin: 10px;
+  border-radius: 35px;
+  border: solid #0483F3;
+  border-left: 1px;
+  border-right: 1px;
+/*  background: linear-gradient(0deg, #222222, #333333 40%, #111111);*/
+  background-image: repeating-linear-gradient(0deg,transparent,transparent 10px,#015198 10px,#015198 11px),repeating-linear-gradient(-90deg,transparent,transparent 10px,#015198 10px,#015198 11px);
+  background-size: 71px 71px;
+}
+
+#timeline {
+  display: block;
+  min-height: 20px;
+  color: #8dd9f1;
+  background-color: #015198;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 35px;
+  border: solid #880000;
+  border-top: 1px;
+  border-bottom: 1px;
+  background: linear-gradient(0deg, #660000, #880000 40%, #440000);
+}
+
+.dashboard {
+  color: #ffffff;
+  background-color: #8dd9f1;
+  padding: 5px 20px;
+  margin: 0px;
+}
+
+.dashboard p {
+  color: #ffffff;
+  font-weight: normal;
+  font-size: 24px;
+}
+
+.dashboard a {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: normal;
+
+}
+
+.logo {
+  color: #ffffff;
+  background-color: #8dd9f1;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 10px 14px;
+  border-radius: 25px;
+  -webkit-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.countdown {
+  color: #aa0000;
+  background-color: #ffffff;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 10px 14px;
+  border-radius: 5px;
+  -webkit-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.main {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  margin: 0px;
+  border: 1px solid #6db9d1;
+}
+
+.grid {
+  border: 0px solid #aa0000;
+  padding: 0px;
+}
+
+.grid-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.cell {
+  flex: 1;
+  border: 0px solid #caccb6;
+  padding: 10px;
+  min-height: 15vh;
+}
+
+.align_right {
+  text-align: right;
+}
+
+@media all and (min-width: 480px){
+  .grid-row-sm {
+    flex-direction: row;
+  }
+}
+
+@media all and (min-width: 720px) {
+  .grid-row-md {
+    flex-direction: row;
+  }
+}
+
+@media all and (min-width: 960px) {
+  .grid-row-md {
+    flex-direction: row;
+  }
+}
