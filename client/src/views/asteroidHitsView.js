@@ -1,14 +1,14 @@
-var AsteroidHitsView = function(asteroidFacts){
+var AsteroidHitsView = function(asteroidHits){
 
-  AsteroidHitsView.prototype.renderAsteroidHits(asteroidFacts);
+  AsteroidHitsView.prototype.renderAsteroidHits(asteroidHits);
 
 }
 
 AsteroidHitsView.prototype = {
 
 //test if it's making it this far
-  renderAsteroidHits: function(asteroidFacts){
-    console.log(asteroidFacts);
+  renderAsteroidHits: function(asteroidHits){
+    console.log(asteroidHits);
   }
 
 }

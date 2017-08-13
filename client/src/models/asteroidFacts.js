@@ -1,4 +1,4 @@
-var asteroidFact = require('./asteroidFact');
+var AsteroidFact = require('./asteroidFact');
 
 var AsteroidFacts = function(){
 
@@ -10,14 +10,15 @@ AsteroidFacts.prototype = {
     var request = new XMLHttpRequest();
     request.open('GET', url);
     request.addEventListener('load', callback);
-    request.send(;)
+    request.send()
   },
 
   all: function(callback){
     this.makeRequest("http://localhost:3000/api/facts", function(){
       if(this.status !==200) return;
-      var jsonString = this.responseText:
+      var jsonString = this.responseText;
       var results = JSON.parse(jsonString);
+      // console.log(results);
       var facts = AsteroidFacts.prototype.populateFacts(results);
       callback(facts);
     });
@@ -32,8 +33,6 @@ AsteroidFacts.prototype = {
     return facts;
   },
 
-
-
-};
+}
 
 module.exports = AsteroidFacts;
