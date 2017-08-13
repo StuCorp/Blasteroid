@@ -216,7 +216,7 @@ background: linear-gradient(0deg, #662222, #aa3333 40%, #551111);
   background-size: 71px 71px;*/
 }
 
-#fact_box0 {
+#fact_box {
   z-index: 4;
   display: inline;
   min-height: 150px;
