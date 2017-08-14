@@ -18,6 +18,7 @@ var Asteroid = function(options){
   this.xPos = 0;
   this.yPos = 0;
   this.arrived = false;
+  this.detailsShown; 
 }
 
 
@@ -55,8 +56,17 @@ calculateSize: function(sizeM){
     return 100 + (sizeM/100);
   };
 
+},
+
+onScreen: function(){
+  if(this.xPos > 0){
+    return true;
+  }  else {
+    return false;
+  };
 }
 
 }
+
 
 module.exports = Asteroid;

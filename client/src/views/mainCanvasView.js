@@ -42,7 +42,6 @@ var MainCanvasView = function(asteroids) {
   console.log("Hi from asteroidview constructor")
   console.log(this.asteroids)
   init(asteroids);
-
 }
 
 var init = function(asteroids){
@@ -52,7 +51,7 @@ var init = function(asteroids){
   asteroidImage.src = "./images/Asteroid.png"; 
   moon.src = "./images/Moon.png";
   var canvas = document.getElementById('main-canvas');
-   var context = canvas.getContext('2d');
+  var context = canvas.getContext('2d');
 
 
   asteroidsArray = asteroids;
@@ -85,17 +84,21 @@ var init = function(asteroids){
   infoBoxClicked = false; 
 
 
-  window.addEventListener('click', function(event){
-console.log(event);
-    if(event.x> infoBoxPosX && event.x < infoBoxPosX + infoBoxWidth && event.y > infoBoxPosY && event.y < infoBoxPosY + infoBoxHeight){
-      // debugger;
-      if (infoBoxClicked===false){ 
-        infoBoxClicked = true;
-      } else{
-        infoBoxClicked = false; 
-      }
-    }
-  });
+  // window.addEventListener('click', function(event){
+    // console.log("mouse x: " + event.x);
+    // console.log("mouse y: " + event.y);
+    // console.log("asteroid x: " + asteroids[0].xPos);
+    // console.log("asteroid y: " + asteroids[0].yPos);
+
+  //   if(event.x> infoBoxPosX && event.x < infoBoxPosX + infoBoxWidth && event.y > infoBoxPosY && event.y < infoBoxPosY + infoBoxHeight){
+  //     // debugger;
+  //     if (infoBoxClicked===false){ 
+  //       infoBoxClicked = true;
+  //     } else{
+  //       infoBoxClicked = false; 
+  //     }
+  //   }
+  // });
 
   // canvas.addEventListener( "keydown", doKeyDown, true);
 
@@ -109,7 +112,6 @@ console.log(event);
       }
       console.log(paused);
     }
-
   });
 
 
@@ -117,42 +119,84 @@ console.log(event);
     console.log(event);
     console.log("mouse in the house");
     console.log(event.x);
- 
+
   });
 
-  canvas.addEventListener('click', function(event){
+  // if(event.x> infoBoxPosX && event.x < infoBoxPosX + infoBoxWidth && event.y > infoBoxPosY && event.y < infoBoxPosY + infoBoxHeight){ 
+    // asteroid.onScreen
 
+  canvas.addEventListener('click', function(event){
+    // debugger;
+    console.log("mouse x: " + event.layerX);
+    console.log("mouse y: " + event.layerY);
+    console.log("asteroid x: " + asteroidsToDraw[0].xPos);
+    console.log("asteroid y: " + asteroidsToDraw[0].yPos);
+    console.log(event);
+    console.log("TOUCH TOUCH");
     asteroidsToDraw.forEach(function(asteroid){
       // debugger;
-      if(event.layerX > asteroid.xPos && event.layerX < (asteroid.xPos + asteroid.size) && event.layerY > asteroid.yPos && event.layerY < (asteroid.yPos + asteroid.size)){
+      if(event.layerY > asteroid.yPos && event.layerY < asteroid.yPos + asteroid.size){ 
+      
         console.log("touching it!");
         populateInfoBox(context, canvas, asteroid);
       }
-    });
-      
-    });
+    }); 
+  });
+
+//   debugger;
+//   canvas.addEventListener('keydown', function(event){
+//     console.log("WHHAAHHT");
+// // }
+
+//   window.addEventListener('keydown', function(event){
+//     if(event.key === "ArrowRight"){
+//       asteroidsToDraw.forEach(function(asteroid){
+//         if(asteroid.xPos > 0 && asteroid.xPos < canvas.width){
+//           populateInfoBox(context,canvas, asteroid);
+//           asteroid.detailsShown = true;
+//           break;
+//         };   
+//       });
+//     }
+//   });
 
 
-  window.requestAnimationFrame(draw); 
-}
+
+// window.addEventListener('keydown', function(event){
+//   if(event.code === "ArrowRight"){
+//     if(asteroidsToDraw.length > 0){
+//       asteroidsToDraw.forEach(function(asteroid){
+//         if(asteroid.xPos > 0 && asteroid.xPos < canvas.width){
+//           populateInfoBox(context,canvas, asteroid);
+//           asteroid.detailsShown = true;
+//           break;
+//         }
+//       });
+//     }
+//   }
+// });
 
 
-var draw = function(){ 
-
-  if(!paused){
-
-   var canvas = document.getElementById('main-canvas');
-   var context = canvas.getContext('2d');
-   context.clearRect(0,0, canvas.width,canvas.height);
-   context.fillStyle = 'black';
-   context.fillRect(0,0, canvas.width,canvas.height);
-   today = new Date(); 
+      window.requestAnimationFrame(draw); 
+    }
 
 
-   drawDate(context, canvas);
-   drawDoomsdayClock(context, canvas);
+    var draw = function(){ 
 
-   count++;
+      if(!paused){
+
+       var canvas = document.getElementById('main-canvas');
+       var context = canvas.getContext('2d');
+       context.clearRect(0,0, canvas.width,canvas.height);
+       context.fillStyle = 'black';
+       context.fillRect(0,0, canvas.width,canvas.height);
+       today = new Date(); 
+
+
+       drawDate(context, canvas);
+       drawDoomsdayClock(context, canvas);
+
+       count++;
  // console.log(count);
 
  if(count> dayLength){
@@ -231,7 +275,7 @@ drawAsteroids(context, canvas, asteroidsToDraw);
         context.restore();
         i++;
 
-  
+
 
 
 //end of paused if statement
@@ -333,19 +377,22 @@ var drawAsteroids = function(context, canvas, asteroidsToDraw){
    context.shadowBlur = 60;
    context.shadowOffsetX = 0;
    context.fillRect(starX, starY, 2, 2);
-     context.shadowColor = 'rgba(0, 0, 0, 0)'; 
+   context.shadowColor = 'rgba(0, 0, 0, 0)'; 
 
  };
 
  var drawDate = function(context, canvas){
-  context.fillStyle = 'grey';
+  context.fillStyle = '#0483F3';
 
   context.shadowColor = 'aqua'
-  context.shadowBlur = 60;
+  context.shadowBlur = 100;
   context.shadowOffsetX = 0;
   context.font = dateTextSize + 'px Saira Semi Condensed';
-  context.fillText("Day " + date + ": " + stableToday.toDateString(), canvas.width/60, canvas.height/5);
-     context.shadowColor = 'rgba(0, 0, 0, 0)'; 
+  context.fillText("Day " + date + ": " + stableToday.toDateString(), canvas.width/2 - (canvas.width/8), canvas.height/5);
+  var approachDateText = document.getElementById("close_approach_date");
+  // debugger;
+  approachDateText.innerText = stableToday.toDateString();
+  context.shadowColor = 'rgba(0, 0, 0, 0)'; 
 
   // debugger;
 }
@@ -382,6 +429,24 @@ var populateInfoBox = function(context, canvas, asteroid){
   context.fillText("Speed:  " + Math.round(asteroid.speedKS) + '(km/s)', 20, canvas.height - (detailTextSize *2));
   context.fillText("Will miss earth by:  " + asteroid.missDistanceKm + '(km)', 20, canvas.height - detailTextSize);
   console.log("success");
+
+
+
+//populate EDDIE BOX
+var nameID = document.getElementById("name");
+nameID.innerText = "Name: " + asteroid.name;
+var sizeID = document.getElementById("estimated_diameter_min");
+sizeID.innerText = "Size: " + asteroid.sizeM + "(m)";
+var hazardousID = document.getElementById("is_potentially_hazardous_asteroid");
+hazardousID.innerText = "Harzardous: " + asteroid.hazardous;
+// var approachDateID = document.getElementById("approach_date");
+// approachDateID.innerText = "Date of arrival: " + asteroid.arrivalDateString;
+var speedID = document.getElementById("kilometers_per_second");
+speedID.innerText = "Speed: " + Math.round(asteroid.speedKS) + "(kps)"; 
+var missDistanceID = document.getElementById("kilometers");
+missDistanceID.innerText = "Miss earth by: " + asteroid.missDistanceKm + "(km)";
+
+
 };
 
 
