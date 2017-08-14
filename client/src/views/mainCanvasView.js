@@ -65,7 +65,7 @@ var init = function(asteroids){
   bigImpactDate = new Date(2880, 03, 16, 12, 30, 0);
   stableToday = new Date();
   dateTextSize = canvas.height/12;
-  impactTextSize = canvas.height/20;
+  impactTextSize = canvas.height/25;
   detailTextSize = canvas.height/28;
   starTimer =0;
   earthShadowIterator = 0; 
@@ -103,7 +103,7 @@ var init = function(asteroids){
   // canvas.addEventListener( "keydown", doKeyDown, true);
 
   window.addEventListener('keydown', function(event){
-    if(event.code === "Space"){
+    if(event.code === "Enter" || event.code === "Space"){
       // debugger;
       if (paused===false){ 
         paused = true;
@@ -248,7 +248,7 @@ drawAsteroids(context, canvas, asteroidsToDraw);
 
     //info box
 
-    context.strokeStyle = 'hotpink';
+    context.strokeStyle = 'rgba(0, 0, 0, 0)';
     context.strokeRect(infoBoxPosX, infoBoxPosY, infoBoxWidth, infoBoxHeight);
 
     // debugger;
@@ -382,69 +382,80 @@ var drawAsteroids = function(context, canvas, asteroidsToDraw){
  };
 
  var drawDate = function(context, canvas){
-  context.fillStyle = '#0483F3';
+  // context.fillStyle = '#01FFFF';
+  context.fillStyle = '#8dd9f1';
 
   context.shadowColor = 'aqua'
   context.shadowBlur = 100;
   context.shadowOffsetX = 0;
   context.font = dateTextSize + 'px Saira Semi Condensed';
-  context.fillText("Day " + date + ": " + stableToday.toDateString(), canvas.width/2 - (canvas.width/8), canvas.height/5);
-  var approachDateText = document.getElementById("close_approach_date");
-  // debugger;
-  approachDateText.innerText = stableToday.toDateString();
+  context.fillText("Day " + date + ": " + stableToday.toDateString(), canvas.width/2 - (canvas.width/8), 25);
+  // canvas.height/4.5
   context.shadowColor = 'rgba(0, 0, 0, 0)'; 
+
+  
+// //EDDIES DATE
+//   var approachDateText = document.getElementById("close_approach_date");
+//   // debugger;
+//   approachDateText.innerText = stableToday.toDateString();
 
   // debugger;
 }
 
 var drawDoomsdayClock = function(context, canvas){
-
-  context.fillStyle = 'aqua';
+  var doomClockXpos = 20;
+  var doomClockYpos = canvas.height - (detailTextSize * 2) ; 
+  context.fillStyle = '#FE3801';
+  // context.fillStyle = 'red';
   context.font = impactTextSize + 'px Saira';
 
-  context.fillText("Next extinction-level impact:", infoBoxPosX + 10, 25);
-  context.fillText( (bigImpactDate - today)/1000 , infoBoxPosX + 10, 50);
-  context.fillText( "seconds left", infoBoxPosX + 200, 50);
+  context.fillText("Count down to extinction-level impact:", doomClockXpos, doomClockYpos);
+  context.fillText( (bigImpactDate - today)/1000 , doomClockXpos, doomClockYpos + 20);
+  // context.fillText( "seconds left", infoBoxPosX + 200, 50);
   // debugger;
 }
 
 var drawPaused = function(context, canvas){
- context.fillStyle = 'rgba(175,4,4,0.1)';
+ context.fillStyle = 'rgba(254,56,1,0.1)';
  context.font = pausedText + 'px Saira';
  context.fillText("PAUSED", canvas.width/2 - (pausedText *2), canvas.height/2 + (pausedText/2));
 } 
 
 var populateInfoBox = function(context, canvas, asteroid){
+  var detailsBoxXpos = 1000;
+//previous xpositon = 20
+  
+
   context.fillStyle = 'black';
-  context.fillRect(20, canvas.height - (detailTextSize * 7), 300, 300);
-  // debugger;
+  context.fillRect(detailsBoxXpos, canvas.height - (detailTextSize * 7), 300, 300);
+
 
   context.fillStyle = 'white';
   context.font = detailTextSize + 'px Saira';
 
-  context.fillText("Name:  " + asteroid.name, 20, canvas.height - (detailTextSize *6) );
-  context.fillText("Size:  " + Math.round(asteroid.sizeM, -2) + '(m)', 20, canvas.height - (detailTextSize * 5));
-  context.fillText("Harzardous:  " + asteroid.hazardous, 20, canvas.height - (detailTextSize *4));
-  context.fillText("Date of arrival:  " + asteroid.arrivalDateString, 20, canvas.height - (detailTextSize *3));
-  context.fillText("Speed:  " + Math.round(asteroid.speedKS) + '(km/s)', 20, canvas.height - (detailTextSize *2));
-  context.fillText("Will miss earth by:  " + asteroid.missDistanceKm + '(km)', 20, canvas.height - detailTextSize);
+  context.fillText("Name:  " + asteroid.name, detailsBoxXpos, canvas.height - (detailTextSize *6) );
+  context.fillText("Size:  " + Math.round(asteroid.sizeM, -2) + '(m)', 1000, canvas.height - (detailTextSize * 5));
+  context.fillText("Harzardous:  " + asteroid.hazardous, detailsBoxXpos, canvas.height - (detailTextSize *4));
+  context.fillText("Date of arrival:  " + asteroid.arrivalDateString, detailsBoxXpos, canvas.height - (detailTextSize *3));
+  context.fillText("Speed:  " + Math.round(asteroid.speedKS) + '(km/s)', detailsBoxXpos, canvas.height - (detailTextSize *2));
+  context.fillText("Will miss earth by:  " + asteroid.missDistanceKm + '(km)', detailsBoxXpos, canvas.height - detailTextSize);
   console.log("success");
 
 
 
 //populate EDDIE BOX
-var nameID = document.getElementById("name");
-nameID.innerText = "Name: " + asteroid.name;
-var sizeID = document.getElementById("estimated_diameter_min");
-sizeID.innerText = "Size: " + asteroid.sizeM + "(m)";
-var hazardousID = document.getElementById("is_potentially_hazardous_asteroid");
-hazardousID.innerText = "Harzardous: " + asteroid.hazardous;
-// var approachDateID = document.getElementById("approach_date");
-// approachDateID.innerText = "Date of arrival: " + asteroid.arrivalDateString;
-var speedID = document.getElementById("kilometers_per_second");
-speedID.innerText = "Speed: " + Math.round(asteroid.speedKS) + "(kps)"; 
-var missDistanceID = document.getElementById("kilometers");
-missDistanceID.innerText = "Miss earth by: " + asteroid.missDistanceKm + "(km)";
+// var nameID = document.getElementById("name");
+// nameID.innerText = "Name: " + asteroid.name;
+// var sizeID = document.getElementById("estimated_diameter_min");
+// sizeID.innerText = "Size: " + asteroid.sizeM + "(m)";
+// var hazardousID = document.getElementById("is_potentially_hazardous_asteroid");
+// hazardousID.innerText = "Harzardous: " + asteroid.hazardous;
+// // var approachDateID = document.getElementById("approach_date");
+// // approachDateID.innerText = "Date of arrival: " + asteroid.arrivalDateString;
+// var speedID = document.getElementById("kilometers_per_second");
+// speedID.innerText = "Speed: " + Math.round(asteroid.speedKS) + "(kps)"; 
+// var missDistanceID = document.getElementById("kilometers");
+// missDistanceID.innerText = "Miss earth by: " + asteroid.missDistanceKm + "(km)";
 
 
 };
