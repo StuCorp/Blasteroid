@@ -4,6 +4,7 @@ var asteroidsArray = [];
 var url;
 var numberOfWeeks = 52;
 var currentWeek = 0;
+var today;
 
 var asteroid1 = new Asteroid({
   name: "(2006 SM198)", 
@@ -74,22 +75,40 @@ var app = function() {
 
   // new UI(asteroids);
   var urlFirstPart = "https://api.nasa.gov/neo/rest/v1/feed?start_date=";
-  var today = new Date();
-  var today = today.toJSON().slice(0,10);
+  today = new Date();
+  today = today.toJSON().slice(0,10);
   var endDate = new Date();
   endDate.setFullYear(endDate.getFullYear() + 1);
   endDate = endDate.toJSON().slice(0,10);
 
   var urlSecondPart = "=END_DATE&api_key=";
   var apiKey = "NiOr5B0PxAfP318MbGo2A2QD6mRvQP2HMg9RtBh6"; 
-  var fullUrl = urlFirstPart + today + "&" + endDate + urlSecondPart + apiKey;
+  var url = urlFirstPart + today + "&" + endDate + urlSecondPart + apiKey;
+
+  // url = fullUrl;
+
+  // url = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2017-08-14&2018-08-18=END_DATE&api_key=NiOr5B0PxAfP318MbGo2A2QD6mRvQP2HMg9RtBh6";
+
+ // localStorage.getItem("username") === null
+if(localStorage.getItem(today) !== null){
+  debugger;
+      var storedReturn = localStorage.getItem(today);
+      var asteroidsObjects = JSON.parse(storedReturn);
+      asteroidsObjects.pop();
+      new UI(asteroidsObjects);
+} else{
+makeRequest(url, requestComplete);
+}
+
 
 // debugger;
 
 
-url = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2017-08-14&2018-08-18=END_DATE&api_key=NiOr5B0PxAfP318MbGo2A2QD6mRvQP2HMg9RtBh6";
+// url = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2017-08-14&2018-08-18=END_DATE&api_key=NiOr5B0PxAfP318MbGo2A2QD6mRvQP2HMg9RtBh6";
 
-makeRequest(url, requestComplete);
+// makeRequest(url, requestComplete);
+
+
 }
 
 var makeRequest = function(url, callback){
@@ -133,6 +152,7 @@ var requestComplete = function(){
       makeRequest(url, requestComplete);
     } else {
       // debugger;
+    localStorage.setItem(today, JSON.stringify(asteroidsArray));
       new UI(asteroidsArray);
     }
 

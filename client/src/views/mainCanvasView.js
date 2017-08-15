@@ -223,9 +223,13 @@ if(!paused){
      //  asteroid.x -= asteroid.speed; 
      // });
      asteroidX-= 5;
-
+debugger;
      asteroidsArray.forEach(function(asteroid){
-      // debugger;
+      debugger;
+      if(asteroid.arrivalDate[asteroid.arrivalDate.length - 1] === 'Z'){
+        asteroid.arrivalDate = new Date(asteroid.arrivalDate);
+      }
+
       if(asteroid.arrivalDate.getFullYear() === stableToday.getFullYear() && 
         asteroid.arrivalDate.getMonth() === stableToday.getMonth() && 
         asteroid.arrivalDate.getDate() === stableToday.getDate() && asteroid.arrived === false){
@@ -249,7 +253,7 @@ if(!paused){
 
 
      if(asteroidsToDraw.length> 0) {
-debugger;
+// debugger;
 asteroidsToDraw.forEach(function(asteroid){
   asteroid.xPos -= asteroid.speed;
 });
