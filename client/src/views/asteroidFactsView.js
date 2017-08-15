@@ -1,3 +1,5 @@
+var UI = require('./UI');
+
 var AsteroidFactsView = function(asteroidFacts){
 
   AsteroidFactsView.prototype.renderAsteroidFacts(asteroidFacts);
@@ -6,9 +8,41 @@ var AsteroidFactsView = function(asteroidFacts){
 
 AsteroidFactsView.prototype = {
 
-//test if it's making it this far
-  renderAsteroidFacts: function(asteroidFacts){
-    console.log(asteroidFacts);
+  renderAsteroidFacts: function(facts){
+    // console.log(asteroidFacts);
+    var count = 0;
+    var fact = facts[count];
+
+    var fact_box = document.getElementById('fact_box');
+    
+    var factHeadline = document.getElementById('fact_headline');
+    factHeadline.innerText = fact.headline;
+
+    var factDetail = document.getElementById('fact_detail');    
+    factDetail.innerText = fact.detail;
+
+    var factImage = document.getElementById('fact_image');
+    factImage.src = fact.image;
+
+    factImage.addEventListener('click', function(){
+      count++ ;
+      if (count === facts.length){
+        count = 0;
+      }
+      var fact = facts[count];
+      var fact_box = document.getElementById('fact_box');
+    
+      var factHeadline = document.getElementById('fact_headline');
+      factHeadline.innerText = fact.headline;
+
+      var factDetail = document.getElementById('fact_detail'); 
+      factDetail.innerText = fact.detail;
+
+      var factImage = document.getElementById('fact_image');
+      factImage.src = fact.image;
+    });
+
+
   }
 
 }
