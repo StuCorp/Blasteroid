@@ -256,9 +256,13 @@ background: linear-gradient(0deg, #662222, #aa3333 40%, #551111);
   margin-left: 3px;
 }
 
+#timeline_div {
+  text-align: center;
+}
+
 li {
   float: left;
-  margin:0; padding-right:60px; padding-left; padding-top: 0px; text-decoration:none; color:#FE3801; font-size:54px;
+  margin:0; padding-right:30px; padding-left:30px; padding-top: 0px; text-decoration:none; color:#FE3801; font-size:54px;
 }
 
 #fact_arrow {
@@ -266,9 +270,14 @@ li {
   padding-right: 26px;
   float: right;
   font-weight: bolder;
-  color: #ffffff;
 }
 
+#fact_arrow_previous {
+  text-align: left;
+  padding-left: 26px;
+  float: right;
+  font-weight: bolder;
+}
 .dashboard {
   color: #ffffff;
   background-color: #8dd9f1;
