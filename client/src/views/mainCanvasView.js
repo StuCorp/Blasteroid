@@ -30,6 +30,11 @@ var paused;
 var pausedText;
 var detailTextSize;
 
+//sounds
+var asteroidSound;
+var pauseSound;
+var hazardousSound;
+
 
 var earthShadowIterator;
 var i; 
@@ -74,6 +79,11 @@ var init = function(asteroids){
   paused = false;
   pausedText = canvas.width/10  ;
   
+  //sounds
+  asteroidSound = new Audio('./sounds/asteroidAppear.wav');
+  pauseSound = new Audio('./sounds/pause.wav');
+  hazardousSound = new Audio('./sounds/evilAsteroid.wav')
+
   i =0;
 
   infoBoxPosX = canvas.width - (canvas.width/3);
@@ -107,6 +117,7 @@ var init = function(asteroids){
       // debugger;
       if (paused===false){ 
         paused = true;
+        pauseSound.play();
       } else{
         paused = false; 
       }
@@ -135,7 +146,7 @@ var init = function(asteroids){
     console.log("TOUCH TOUCH");
     asteroidsToDraw.forEach(function(asteroid){
       // debugger;
-      if(event.layerY > asteroid.yPos && event.layerY < asteroid.yPos + asteroid.size){ 
+      if(event.layerY > asteroid.yPos && event.layerY < asteroid.yPos + asteroid.size && asteroid.xPos > 0){ 
       
         console.log("touching it!");
         populateInfoBox(context, canvas, asteroid);
@@ -225,6 +236,12 @@ var init = function(asteroids){
       asteroid.image = new Image();
       asteroid.image.src = "./images/Asteroid.png"; 
       asteroid.arrived = true;
+      if(asteroid.hazardous){
+        hazardousSound.play();
+      }else{
+      asteroidSound.play();
+
+      }
       asteroidsToDraw.push(asteroid);
     }
   });

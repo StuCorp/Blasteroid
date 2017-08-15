@@ -68,6 +68,19 @@ var app = function() {
 
 
   // new UI(asteroids);
+var urlFirstPart = "https://api.nasa.gov/neo/rest/v1/feed?start_date=";
+var today = new Date();
+var startDate = today.toJSON().slice(0,10);
+var endDate = new Date();
+endDate.setFullYear(endDate.getFullYear() + 1);
+endDate = endDate.toJSON().slice(0,10);
+
+debugger;
+
+var urlSecondPart = "=END_DATE&api_key";
+var apiKey = "NiOr5B0PxAfP318MbGo2A2QD6mRvQP2HMg9RtBh6"; 
+
+
   var url = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2017-08-18&2018-08-18=END_DATE&api_key=NiOr5B0PxAfP318MbGo2A2QD6mRvQP2HMg9RtBh6";
 
     makeRequest(url, requestComplete);
@@ -84,6 +97,16 @@ var app = function() {
     if(this.status !== 200) return;
     var jsonString = this.responseText;
     var asteroids = JSON.parse(jsonString);
+    //here set the next url
+    // url =    asteroids.links.next;
+  //   while(numberOfWeeks >52) {
+  //   makeRequest(url, requestComplete);
+  // } else {
+  //   new UI(asteroidsArray);
+  // }
+    // debugger;
+    // console.log(asteroids);
+
     var asteroidsArray = [];
     addToAsteroidsArray(asteroids, "2017-08-18", asteroidsArray); // copy this line!
     addToAsteroidsArray(asteroids, "2017-08-23", asteroidsArray);
