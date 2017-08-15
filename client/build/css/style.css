@@ -248,6 +248,19 @@ background: linear-gradient(0deg, #662222, #aa3333 40%, #551111);
   background: linear-gradient(0deg, #660000, #880000 40%, #440000);
 }
 
+#timeline_ul {
+  list-style-type: disc;
+  list-style-image: url('https://cdn2.iconfinder.com/data/icons/function_icon_set/circle_red.png');
+  padding-top: 0px;
+  margin-top: 2px;
+  margin-left: 3px;
+}
+
+li {
+  float: left;
+  margin:0; padding-right:60px; padding-left; padding-top: 0px; text-decoration:none; color:#FE3801; font-size:54px;
+}
+
 .dashboard {
   color: #ffffff;
   background-color: #8dd9f1;
