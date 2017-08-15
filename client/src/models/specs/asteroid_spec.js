@@ -1,5 +1,6 @@
 var Asteroid = require('../asteroid');
 var assert = require('assert');
+var App = require('../../app.js')
 
 describe('Asteroid', function() {
   var asteroid;
@@ -39,7 +40,12 @@ describe('Asteroid', function() {
     assert.equal(asteroid.missDistanceKm, '43331116');
   });
 
-
+  // it('should add an asteroid to asteroids array', function(){
+  //   var asteroidsArray = [];
+  //   var object = ;
+  //   addToAsteroidsArray(Object);
+  //   assert.equal(asteroidsArray.length, 1);
+  // })
 
 });
 

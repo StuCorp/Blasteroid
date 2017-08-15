@@ -212,4 +212,3 @@ var requestComplete = function(){
 
 
   window.addEventListener('load', app);
-

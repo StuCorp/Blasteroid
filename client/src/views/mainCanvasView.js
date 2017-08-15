@@ -223,9 +223,9 @@ if(!paused){
      //  asteroid.x -= asteroid.speed; 
      // });
      asteroidX-= 5;
-debugger;
+// debugger;
      asteroidsArray.forEach(function(asteroid){
-      debugger;
+      // debugger;
       if(asteroid.arrivalDate[asteroid.arrivalDate.length - 1] === 'Z'){
         asteroid.arrivalDate = new Date(asteroid.arrivalDate);
       }
