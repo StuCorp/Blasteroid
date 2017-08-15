@@ -78,7 +78,7 @@ var init = function(asteroids){
   starTimer =0;
   earthShadowIterator = 0; 
   earthDimension = canvas.height/4;
-  dayLength =50;
+  dayLength =500;
   paused = false;
   pausedText = canvas.width/10  ;
   
@@ -119,7 +119,7 @@ var init = function(asteroids){
   // canvas.addEventListener( "keydown", doKeyDown, true);
 
   window.addEventListener('keydown', function(event){
-    if(event.code === "Enter" || event.code === "Space"){
+    if(event.code === "Enter"){
       // debugger;
       if (paused===false){ 
         paused = true;
@@ -128,6 +128,12 @@ var init = function(asteroids){
         paused = false; 
       }
       console.log(paused);
+    }
+    if(event.code === "ArrowRight"){
+      dayLength -= 10; 
+    }
+    if(event.code === "ArrowLeft"){
+      dayLength +=   10;
     }
   });
 
@@ -306,7 +312,7 @@ drawAsteroids(context, canvas, asteroidsToDraw);
         i++;
 
 
-
+        drawDaySpeed(context, canvas);
 
 //end of paused if statement
 }
@@ -451,6 +457,12 @@ var drawPaused = function(context, canvas){
  context.font = pausedText + 'px Saira';
  context.fillText("PAUSED", canvas.width/2 - (pausedText *2), canvas.height/2 + (pausedText/2));
 } 
+
+var drawDaySpeed = function(context, canvas){
+  context.fillStyle = '#0483F3';
+  context.font = impactTextSize + 'px Saira';
+  context.fillText("Day Speed: " + dayLength, canvas.width - canvas.width/8, canvas.height - (detailTextSize *2));
+}
 
 var populateInfoBox = function(context, canvas, asteroid){
   var detailsBoxXpos = 1000;
