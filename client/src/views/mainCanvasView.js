@@ -31,10 +31,13 @@ var pausedText;
 var detailTextSize;
 
 //sounds
-var asteroidSound;
+
 var pauseSound;
 var hazardousSound;
+var asteroidSound;
 
+//images
+var asteroidImages;
 
 var earthShadowIterator;
 var i; 
@@ -80,9 +83,12 @@ var init = function(asteroids){
   pausedText = canvas.width/10  ;
   
   //sounds
-  asteroidSound = new Audio('./sounds/asteroidAppear.wav');
   pauseSound = new Audio('./sounds/pause.wav');
-  hazardousSound = new Audio('./sounds/evilAsteroid.wav')
+  hazardousSound = new Audio('./sounds/evilAsteroid.wav');
+  asteroidSound = new Audio('./sounds/asteroidAppear.wav');
+
+  //images
+  asteroidImages = ["./images/Asteroid.png", "./images/Asteroid2.png", "./images/Asteroid3.png", "./images/Asteroid4.png", "./images/Asteroid5.png","./images/Asteroid6.png", "./images/Asteroid7.png", "./images/Asteroid8.png"];
 
   i =0;
 
@@ -223,9 +229,9 @@ if(!paused){
      //  asteroid.x -= asteroid.speed; 
      // });
      asteroidX-= 5;
-debugger;
+     // debugger;
      asteroidsArray.forEach(function(asteroid){
-      debugger;
+      // debugger;
       if(asteroid.arrivalDate[asteroid.arrivalDate.length - 1] === 'Z'){
         asteroid.arrivalDate = new Date(asteroid.arrivalDate);
       }
@@ -239,11 +245,13 @@ debugger;
      var aboveOrBelowEarth = _.random(0,1) === 0 ? -1 : 1;
      asteroid.yPos = (earthY + earthDimension/2) + ((canvas.height/ 20) * asteroid.missDistance * aboveOrBelowEarth);
      asteroid.image = new Image();
-     asteroid.image.src = "./images/Asteroid.png"; 
+     // asteroid.image.src = "./images/Asteroid.png"; 
+     // debugger;
+     asteroid.image.src = asteroidImages[_.random(0, asteroidImages.length-1)]; 
      asteroid.arrived = true;
      if(asteroid.hazardous){
       hazardousSound.play();
-    }else{
+    }else{      
       asteroidSound.play();
 
     }
@@ -363,7 +371,8 @@ var drawAsteroids = function(context, canvas, asteroidsToDraw){
        context.shadowBlur = 10;
        context.shadowOffsetX = 5;
      }
-     context.drawImage(asteroidImage,  asteroid.xPos, asteroid.yPos, asteroid.size, asteroid.size);
+     debugger;
+     context.drawImage(asteroid.image,  asteroid.xPos, asteroid.yPos, asteroid.size, asteroid.size);
      context.shadowColor = 'rgba(0, 0, 0, 0)'; 
     // context.restore();
     if(asteroid.hazardous===true){
