@@ -201,7 +201,7 @@ padding: 0px;
 #timeline_box {
   z-index: 4;
   display: inline;
-  min-height: 300px;
+  min-height: 350px;
   color: #8dd9f1;
   background-color: #222222;
   padding: 10px;
@@ -220,7 +220,7 @@ background: linear-gradient(0deg, #662222, #aa3333 40%, #551111);
 #fact_box {
   z-index: 4;
   display: inline;
-  min-height: 300px;
+  min-height: 350px;
   color: #8dd9f1;
   background-color: #013064;
   padding: 10px;
