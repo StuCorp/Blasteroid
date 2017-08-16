@@ -91,7 +91,7 @@ var app = function() {
 
  // localStorage.getItem("username") === null
 if(localStorage.getItem(today) !== null){
-  debugger;
+  // debugger;
       var storedReturn = localStorage.getItem(today);
       var asteroidsObjects = JSON.parse(storedReturn);
       asteroidsObjects.pop();
@@ -212,4 +212,3 @@ var requestComplete = function(){
 
 
   window.addEventListener('load', app);
-
