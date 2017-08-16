@@ -67,14 +67,10 @@ var i;
 
 var MainCanvasView = function(asteroids) {
   this.asteroids = asteroids;
-  console.log("Hi from asteroidview constructor")
-  console.log(this.asteroids)
   init(asteroids);
 }
 
 var init = function(asteroids){
-  console.log("Hi from init")
-
   earth.src = "./images/Earth.png"; 
   asteroidImage.src = "./images/Asteroid.png"; 
   moon.src = "./images/Moon.png";
@@ -138,7 +134,6 @@ var init = function(asteroids){
         paused = false; 
         unPauseSound.play();
       }
-      console.log(paused);
     }
     if(event.code === "ArrowRight"){
       soundChange.play();
@@ -154,36 +149,13 @@ var init = function(asteroids){
     }
   });
 
-
-  canvas.addEventListener('keydown', function(event){
-    console.log(event);
-    console.log("mouse in the house");
-    console.log(event.x);
-
-  });
-
-
-
   canvas.addEventListener('click', function(event){
-    console.log("mouse x: " + event.layerX);
-    console.log("mouse y: " + event.layerY);
-    console.log("asteroid x: " + asteroidsToDraw[0].xPos);
-    console.log("asteroid y: " + asteroidsToDraw[0].yPos);
-    console.log(event);
-    console.log("TOUCH TOUCH");
     asteroidsToDraw.forEach(function(asteroid){
       if(event.layerY > asteroid.yPos && event.layerY < asteroid.yPos + asteroid.size && asteroid.xPos > 0){ 
-
-        console.log("touching it!");
         populateInfoBox(context, canvas, asteroid);
       }
     }); 
   });
-
-
-
-
-
 
 
   window.requestAnimationFrame(draw); 
@@ -283,8 +255,8 @@ if(paused){
 
 window.requestAnimationFrame(draw); 
 
-
 } 
+  
 
 var drawEarth = function(context, canvas){
   var earthShadow = 18; 
@@ -357,7 +329,7 @@ var drawDate = function(context, canvas){
   context.shadowColor = 'aqua'
   context.shadowBlur = 100;
   context.shadowOffsetX = 0;
-  context.font = dateTextSize + 'px Saira Semi Condensed';
+  context.font = dateTextSize + 'px Saira';
   context.fillText("Day " + date + ": " + stableToday.toDateString(), canvas.width/2 - (canvas.width/8), 50 );
   context.shadowColor = 'rgba(0, 0, 0, 0)'; 
 }
@@ -400,9 +372,6 @@ var populateInfoBox = function(context, canvas, asteroid){
   context.fillText("Date of arrival:  " + asteroid.arrivalDateString, detailsBoxXpos, canvas.height - (detailTextSize *3));
   context.fillText("Speed:  " + Math.round(asteroid.speedKS) + '(km/s)', detailsBoxXpos, canvas.height - (detailTextSize *2));
   context.fillText("Will miss earth by:  " + asteroid.missDistanceKm + '(km)', detailsBoxXpos, canvas.height - detailTextSize);
-  console.log("success");
-
-
 };
 
 
