@@ -24,7 +24,8 @@ AsteroidFactsView.prototype = {
     var factImage = document.getElementById('fact_image');
     factImage.src = fact.image;
 
-    factImage.addEventListener('click', function(){
+    var factArrow = document.getElementById('fact_arrow');
+    factArrow.addEventListener('click', function(){
       count++ ;
       if (count === facts.length){
         count = 0;
