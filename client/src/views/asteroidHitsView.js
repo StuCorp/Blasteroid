@@ -46,6 +46,7 @@ AsteroidHitsView.prototype = {
         // console.log(hit);
         var dot = document.createElement('img');
         dot.value = index;
+        dot.id = "dot";
         dot.src = "https://cdn2.iconfinder.com/data/icons/function_icon_set/circle_red.png";
 
         var space = document.createElement('img');

@@ -119,7 +119,6 @@ padding: 0px;
   width: 100%;
   height: 350px;
   cursor: crosshair;
-  background-image: url(https://www.nasa.gov/sites/default/files/thumbnails/image/asteroids_passing_earth.jpg);
 }
 
 #logo_position {
@@ -218,6 +217,7 @@ background: linear-gradient(0deg, #662222, #aa3333 40%, #551111);
 }
 
 #fact_box {
+  position: relative;
   z-index: 4;
   display: inline;
   min-height: 350px;
@@ -266,11 +266,23 @@ li {
   margin:0; padding-right:30px; padding-left:30px; padding-top: 0px; text-decoration:none; color:#FE3801; font-size:54px;
 }
 
+#dot:hover {
+  background: linear-gradient(0deg, #aa0000, #cc0000 40%, #880000);
+  border-radius: 25px;
+  -webkit-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  cursor: pointer;
+
+}
+
 #fact_arrow {
-  text-align: right;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
   padding-right: 26px;
-  float: right;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 #fact_arrow_previous {
