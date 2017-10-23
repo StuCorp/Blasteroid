@@ -53,5 +53,5 @@ Once you're up and running, the canvas element can be control:
 * **Chris Burn** - *Database* - [chris-burn](https://github.com/chris-burn)
 * **Kieran Marshall** - *API calls* - [kmar141](https://github.com/kmar141)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/StuCorp/Blasteroid/graphs/contributors) who participated in this project.
 
