@@ -1,8 +1,10 @@
 # Blasteroid
 
+<img width="1265" alt="screen shot 2017-08-21 at 21 55 43" src="https://user-images.githubusercontent.com/27961809/29539318-3d0d6aba-86c1-11e7-86c7-79af16dbf079.png">
+
 A educational website on the theme of asteroids aimed at a children. The site features live data from the NASA Near-Earth Objects API rendered via a HTML5 <canvas> element into an animation of projected asteroids passing the earth for the next 52 weeks, an interactive timeline of Asteroid Impacts and a scrollable collection of Asteroid Facts powered by a local database (MongoDB), and all set in a sleek and exciting front-end context inspired sci-fi/adventure aesthetics to create a compelling user experience.     
 
-##Brief 
+### Brief 
 
 The BBC are looking to improve their online offering of educational content by developing some interactive apps that display information in a fun and interesting way. Your task is to make an MVP to put forward to them - this may only be for a small set of information, and may only showcase some of the features to be included in the final app. You might use an API to bring in content or a database to store facts. The topic of the app is your choice, but here are some suggestions you could look into:  - Interactive timeline, e.g. of the history of computer programming - Interactive map of a historical event - e.g. World War 1, the travels of Christopher Columbus
 
@@ -51,7 +53,10 @@ Once you're up and running, the canvas element can be control:
 * **Stuart Bryce** - *Asteroid <canvas> element, caching API data in local storage* - [StuCorp](https://github.com/StuCorp)
 * **Eddie Ng** - *HTML5 & CSS3* - [stephenedwardng](https://github.com/stephenedwardng)
 * **Chris Burn** - *Database* - [chris-burn](https://github.com/chris-burn)
-* **Kieran Marshall** - *API calls* - [kmar141](https://github.com/kmar141)
+* **Kieran Marshall** - *API calls* - [kmar141](https://github.com/kmar141) 
 
 See also the list of [contributors](https://github.com/StuCorp/Blasteroid/graphs/contributors) who participated in this project.
+
+<img width="1276" alt="screen shot 2017-08-21 at 21 53 29" src="https://user-images.githubusercontent.com/27961809/29539334-503a80e6-86c1-11e7-93bc-8b5d5ec39456.png">
+<img width="1254" alt="screen shot 2017-08-21 at 22 06 24" src="https://user-images.githubusercontent.com/27961809/29539344-5dcc7408-86c1-11e7-8528-3156f934e018.png">
 
