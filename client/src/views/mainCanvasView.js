@@ -169,8 +169,9 @@ var draw = function(){
    var canvas = document.getElementById('main-canvas');
    var context = canvas.getContext('2d');
    context.clearRect(0,0, canvas.width,canvas.height);
-   context.fillStyle = 'black';
-   context.fillRect(0,0, canvas.width,canvas.height);
+   // context.fillStyle = rgba(0,0,0, 0.4);
+
+   // context.fillRect(0,0, canvas.width,canvas.height);
    today = new Date(); 
 
 
@@ -256,7 +257,7 @@ if(paused){
 window.requestAnimationFrame(draw); 
 
 } 
-  
+
 
 var drawEarth = function(context, canvas){
   var earthShadow = 18; 

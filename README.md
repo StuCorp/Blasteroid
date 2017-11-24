@@ -2,7 +2,7 @@
 
 <img width="1265" alt="screen shot 2017-08-21 at 21 55 43" src="https://user-images.githubusercontent.com/27961809/29539318-3d0d6aba-86c1-11e7-86c7-79af16dbf079.png">
 
-A educational website on the theme of asteroids aimed at a children. The site features live data from the NASA Near-Earth Objects API rendered via a HTML5 <canvas> element into an animation of projected asteroids passing the earth for the next 52 weeks, an interactive timeline of Asteroid Impacts and a scrollable collection of Asteroid Facts powered by a local database (MongoDB), and all set in a sleek and exciting front-end context inspired sci-fi/adventure aesthetics to create a compelling user experience.     
+An educational website on the theme of asteroids aimed at a children. The site features live data from the NASA Near-Earth Objects API rendered via a HTML5 <canvas> element into an animation of projected asteroids passing the earth for the next 52 weeks, an interactive timeline of Asteroid Impacts and a scrollable collection of Asteroid Facts powered by a local database (MongoDB), and all set in a sleek and exciting front-end context inspired sci-fi/adventure aesthetics to create a compelling user experience.     
 
 ### Brief 
 
